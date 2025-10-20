@@ -57,7 +57,7 @@ st.title("Multi-Stage Air Compressor with Intercooling")
 st.sidebar.header("Input Parameters")
 
 # Gas composition (air: 21% O2, 79% N2 by volume)
-o2_frac = st.sidebar.slider("O₂ Mole Fraction", 0.0, 1.0, 0.21, 0.01)
+o2_frac = st.sidebar.slider("O₂ Mole Fraction", 0.2, 0.22, 0.21, 0.01)
 n2_frac = 1 - o2_frac
 st.sidebar.write(f"N₂ Mole Fraction: {n2_frac:.2f}")
 
@@ -83,7 +83,7 @@ P_outlet = st.sidebar.number_input("Final Outlet Pressure (bar)",
                                     min_value=1.1, value=45.0, step=1.0)
 
 # Efficiency
-eta_isentropic = st.sidebar.slider("Isentropic Efficiency", 0.5, 1.0, 0.85, 0.01)
+eta_isentropic = st.sidebar.slider("Isentropic Efficiency", 0.5, 1.0, 0.8, 0.01)
 
 # Gas properties functions
 def get_gas_properties(T_C, P_bar, x_o2, x_n2):
@@ -352,3 +352,4 @@ with tab5:
     df_84 = generate_table(84)
     st.dataframe(df_84, use_container_width=True)
     st.download_button("Download CSV", df_84.to_csv(index=False), "compression_84bar.csv", "text/csv")
+
