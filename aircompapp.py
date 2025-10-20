@@ -63,7 +63,7 @@ st.sidebar.write(f"N₂ Mole Fraction: {n2_frac:.2f}")
 
 # Inlet conditions
 vol_flow_inlet = st.sidebar.number_input("Inlet Volumetric Flow (m³/h)", 
-                                          min_value=1.0, value=1000.0, step=10.0)
+                                          min_value=1000.0, value=100000.0, step=1000.0)
 T_inlet = st.sidebar.number_input("Inlet Temperature (°C)", value=20.0)
 P_inlet = st.sidebar.number_input("Inlet Pressure (bar)", value=1.0, step=0.1)
 
@@ -353,3 +353,4 @@ with tab5:
     df_84 = generate_table(84)
     st.dataframe(df_84, use_container_width=True)
     st.download_button("Download CSV", df_84.to_csv(index=False), "compression_84bar.csv", "text/csv")
+
